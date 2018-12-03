@@ -1,1 +1,76 @@
-a
+Абстрактный класс:
+    1) От него мы наследуемся, используя ключевое слово "extends"
+    2) Определяет свойства потомков, которые можно переопределить
+    3) Другие классы могут наследоваться только от ОДНОГО абстрактного класса
+    4) К использованию доступны любые переменные, обычные и абстрактные методы
+    
+Интерфейс:
+    1) Его мы реализируем(имплеминтируем), используя ключевое слово "implements"
+    2) Определяет поведение объектов; обозательное переопределение
+    3) Другие классы могут реализировать несколько интерфейсов
+    4) Все методы - абстрактные. Также можно определять константы
+
+Объявление и использование абстрактных классов:
+
+    public abstract class Figure {
+        public double getPerimetr();
+        
+    }
+    
+    public class Triangle extends Figure {
+        private double a, b, c;
+        
+        //Конструктор
+        public Triangle(double a, double b, double c) {
+            this.a = a;
+            this.b = b;
+            this.c = c;
+            
+        }
+        
+        //Переопределение
+        @Override
+        public double getPerimetr() {
+            return a + b + c;
+            
+        }
+        
+    }
+
+Объявление и использование интерфейсов:
+    
+    public interface IColor() {
+        public int getColor();
+        
+    }
+    
+    public interface IRadius() {
+        public int getRadius();
+        
+    }
+    
+    public class Ball implements IColor, IRadius {
+        private int ballColor, ballRadius;
+        
+        //Конструктор
+        public Ball(int color, int radius) {
+            ballColor = color;
+            ballRadius = radius;
+            
+        }
+        
+        //Переопределение
+        @Override
+        public int getColor() {
+            return ballColor;
+            
+        }
+        
+        //Переопределение
+        @Override
+        public int getRadius() {
+            return ballRadius;
+            
+        }
+        
+    }
