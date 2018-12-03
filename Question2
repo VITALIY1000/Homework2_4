@@ -1,0 +1,71 @@
+Перегрузка - создание метода с таким же названием, но с другими параметрами и/или возвращаемым типом. Это позволяет создавать несколько конструкторов.
+Переопределение - назначение методам родительского класса или интерфейса действия, отличного от определенного в родителе. Обозначается аннотацией "@Override".
+
+Пример перегрузки:
+
+    public class Person {
+        private String name;
+        
+        //Конструктор 1
+        public Person() {
+            name = "Аноним";
+            
+        }
+        
+        //Конструктор 2
+        public Person(String name) {
+            this.name = name;
+            
+        }
+        
+    }
+    
+    public class Main {
+        public static void Main(String args[]) {
+            Person person1 = new Person();
+            Person person2 = new Person("Владимир");
+            
+            System.out.println(person1.name); //выведет "Аноним"
+            System.out.println(person2.name); //выведет "Владимир"
+            
+        }
+        
+    }
+
+Пример переопределения:
+    
+    public class Triangle {
+        private double a, b, c;
+        
+        //Конструктор
+        public Triangle(double a, double b, double c) {
+            this.a = a;
+            this.b = b;
+            this.c = c;
+            
+        }
+        
+        //Метод, который мы переопределяем
+        public double getPerimetr() {
+            return a + b + c;
+            
+        }
+        
+    }
+    
+    public class RavnoStoronyyTriangle extends Triangle {
+        //Конструктор
+        public RavnoStoronyyTriangle(double side) {
+            super(side, side, side);
+            
+        }
+        
+        //Переопределение
+        @Override
+        public double getPerimetr() {
+            return 3 * side;
+            
+        }
+        
+    }
+    
