@@ -1,0 +1,66 @@
+Можно.
+Любой объект имеет стандартный конструктор который создает объект. Но он не инициализирует переменные.
+Так что теоритически setter методами можно заменить конструкторы.
+Но при создании кроме ключевого слова "new" нужно будет вызывать сам setter метод/методы.
+
+С помощью конструктора:
+    
+    public class Main {
+        public static void Main(String args[]) {
+            Message msg = new Message("Внимание!", "Вы уверены, что хотите выйти из приложения?");
+            msg.Show();
+            
+        }
+        
+    }
+    
+    public class Message {
+        private String caption;
+        private String text;
+        
+        public Message(String caption, String text) {
+            this.caption = caption;
+            this.text = text;
+            
+        }
+        
+        public void Show() {
+            System.out.println(caption + "\n" + text);
+            
+        }
+        
+    }
+
+С помощью setter методов:
+    
+    public class Main {
+        public static void Main(String args[]) {
+            Message msg = new Message();
+            msg.setCaption("Внимание!");
+            msg.setText("Вы уверены, что хотите выйти из приложения?");
+            msg.Show();
+            
+        }
+        
+    }
+    
+    public class Message {
+        private String caption;
+        private String text;
+        
+        public void setCaption(String caption) {
+            this.caption = caption;
+            
+        }
+        
+        public void setText(String text) {
+            this.text = text;
+            
+        }
+        
+        public void Show() {
+            System.out.println(caption + "\n" + text);
+            
+        }
+        
+    }
